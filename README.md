@@ -1,3 +1,9 @@
+Created a shopping cart using React and Redux where u can addor remove products to cart.
+once you click on cart button you will be redirected to cart page where you can see detailed cart page
+and increase or decrease the quantity or remove the product as well.
+The total items and total amount to be paid will get updated.
+![image](https://github.com/Asha-vysyaraju/shopping-cart-react/assets/18022094/db1d1edc-07ab-4176-8b46-1521b84f407b)
+![image](https://github.com/Asha-vysyaraju/shopping-cart-react/assets/18022094/c8ea8685-61f1-43cd-a8d1-fd19375e1194)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

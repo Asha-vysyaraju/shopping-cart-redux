@@ -19,7 +19,19 @@ const CartSlice=createSlice({
          },
 
          CHANGE_CART_QTY:(state,action)=>{
-            return { ...state, cart: state.cart.filter((c) => c.id === action.payload.id ? c.qty = action.payload.qty : c.qty) }
+            console.log(action.payload.qty)
+            const updatedItems = state.cart.map((item) =>
+        item.id === action.payload.id
+          ? { ...item, qty: action.payload.qty }
+          : item
+      );
+      const filteredItems = updatedItems.filter((item) => item.qty > 0);
+   
+      return {
+        ...state,
+        cart: filteredItems,
+      };
+           
          }
     },
 })

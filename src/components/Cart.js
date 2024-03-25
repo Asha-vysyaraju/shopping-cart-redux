@@ -9,8 +9,9 @@ import {useDispatch,useSelector} from "react-redux";
 import { REMOVE_FROM_CART,CHANGE_CART_QTY } from '../redux/CartSlice';
 
 const Cart = () => {
-    const dispatch=useDispatch()
     const cartData=useSelector((state)=>state.CartReducer);
+    const dispatch=useDispatch()
+    
     const [total, setTotal] = useState();
     useEffect(() => {
         setTotal(
@@ -18,6 +19,11 @@ const Cart = () => {
         );
     }, [cartData.cart]);
     const navigate = useNavigate();
+    const changeQuantity = (item, newQuantity) => {
+        console.log(newQuantity)
+        console.log(item)
+        dispatch(CHANGE_CART_QTY({ id: item.id, qty: newQuantity }));
+      };
     const [open, setOpen] = useState(false);
     const style = {
         position: "absolute",
@@ -112,9 +118,8 @@ const Cart = () => {
                                                                             size="small"
                                                                             color="error"
                                                                             onClick={() =>
-                                                                                dispatch(CHANGE_CART_QTY({id:item.id,qty:item.qty+1}))
                                                                                    
-                                                                                
+                                                                                 changeQuantity(item, item.qty - 1)
                                                                             }
                                                                         >
                                                                             -
@@ -125,7 +130,7 @@ const Cart = () => {
                                                                             color="error"
                                                                             onClick={() =>
                                                                                 
-                                                                                dispatch(CHANGE_CART_QTY({id:item.id,qty:item.qty-1}))
+                                                                                changeQuantity(item, item.qty + 1)
                                                                             }
                                                                         >
                                                                             +
